@@ -1,0 +1,13 @@
+$width: 390px;
+
+html, body {
+  width: $width;
+}
+
+div.box {
+  width: $width;
+
+  input.input {
+    font-size: 22px;
+  }
+}
