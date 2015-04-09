@@ -5,11 +5,11 @@
   "description": "Bookmark Helper",
   "author": "Jason Younker",
   "background": {
-    "scripts": [ "build/js/background.js" ]
+    "scripts": [ "js/background.js" ]
   },
   "browser_action": {
     "default_title": "Bookmarkr",
-    "default_popup": "views/popup.html"
+    "default_popup": "popup.html"
   },
   "permissions": [ "bookmarks" ],
   "commands": {
