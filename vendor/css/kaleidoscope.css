@@ -483,26 +483,26 @@ nav a {
 
 @font-face {
   font-family: "Roboto Slab";
-  src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/roboto_slab_bold.eot");
-  src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/roboto_slab_bold.woff") format("woff"), url("//d2otzcfu7vqzws.cloudfront.net/fonts/roboto_slab_bold.ttf") format("truetype");
+  /*src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/roboto_slab_bold.eot");*/
+  /*src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/roboto_slab_bold.woff") format("woff"), url("//d2otzcfu7vqzws.cloudfront.net/fonts/roboto_slab_bold.ttf") format("truetype");*/
   font-weight: 700; }
 
 @font-face {
   font-family: "Roboto Slab";
-  src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/roboto_slab_light.eot");
-  src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/roboto_slab_light.woff") format("woff"), url("//d2otzcfu7vqzws.cloudfront.net/fonts/roboto_slab_light.ttf") format("truetype");
+  /*src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/roboto_slab_light.eot");*/
+  /*src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/roboto_slab_light.woff") format("woff"), url("//d2otzcfu7vqzws.cloudfront.net/fonts/roboto_slab_light.ttf") format("truetype");*/
   font-weight: 100; }
 
 @font-face {
   font-family: "Lato";
-  src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/lato_regular.eot");
-  src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/lato_regular.woff") format("woff"), url("//d2otzcfu7vqzws.cloudfront.net/fonts/lato_regular.ttf") format("truetype");
+  /*src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/lato_regular.eot");*/
+  /*src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/lato_regular.woff") format("woff"), url("//d2otzcfu7vqzws.cloudfront.net/fonts/lato_regular.ttf") format("truetype");*/
   font-weight: 400; }
 
 @font-face {
   font-family: "Lato";
-  src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/lato_bold.eot");
-  src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/lato_bold.woff") format("woff"), url("//d2otzcfu7vqzws.cloudfront.net/fonts/lato_bold.ttf") format("truetype");
+  /*src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/lato_bold.eot");*/
+  /*src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/lato_bold.woff") format("woff"), url("//d2otzcfu7vqzws.cloudfront.net/fonts/lato_bold.ttf") format("truetype");*/
   font-weight: 700; }
 
 html {
