@@ -1,7 +1,7 @@
 class Matcher {
-  constructor (...strings) {
-    this.details = {};
-    this.strings = strings.map((str) => { return str.toLowerCase() });
+  constructor (strings={}) {
+    this.strings = strings;
+    // this.strings = strings.map((str) => { return str.toLowerCase() });
   }
 
   matches(query) {
@@ -12,33 +12,35 @@ class Matcher {
     let match = false;
 
     // location that each match occurred
-    this.details[query] = {};
+    // this.details[query] = {};
 
-    this.strings.some((str) => {
+    Object.keys(this.strings).some((type) => {
+      let str = this.strings[type].toLowerCase();
       let j = 0;
       let len = str.length;
 
       // a previous string matched, so exit
       if ( match ) return true;
 
-      this.details[query] = {
-        string: str,
-        indices: []
-      };
-
+      let matchLocations = [];
       for ( let i = 0; i < len && !match; i++) {
         if ( str.charAt(i) == query[j] ) {
-          this.details[query].indices.push(i);
+          matchLocations.push(i);
           j++;
         }
         match = ( j == qlen );
+      }
+
+      if ( match ) {
+        this.details = {};
+        this.details[type] = matchLocations;
       }
 
       // when true will break out of some() loop
       return match;
     });
 
-    console.log(`Match Found? ${match}`, this.details[query]);
+    console.log(`Match Found? ${match}`, this);
     return match;
   }
 }
