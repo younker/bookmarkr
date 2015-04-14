@@ -487,26 +487,26 @@ nav a:hover {
 
 @font-face {
   font-family: "Roboto Slab";
-  src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/roboto_slab_bold.eot");
-  src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/roboto_slab_bold.woff") format("woff"), url("//d2otzcfu7vqzws.cloudfront.net/fonts/roboto_slab_bold.ttf") format("truetype");
+  /*src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/roboto_slab_bold.eot");*/
+  /*src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/roboto_slab_bold.woff") format("woff"), url("//d2otzcfu7vqzws.cloudfront.net/fonts/roboto_slab_bold.ttf") format("truetype");*/
   font-weight: 700; }
 
 @font-face {
   font-family: "Roboto Slab";
-  src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/roboto_slab_light.eot");
-  src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/roboto_slab_light.woff") format("woff"), url("//d2otzcfu7vqzws.cloudfront.net/fonts/roboto_slab_light.ttf") format("truetype");
+  /*src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/roboto_slab_light.eot");*/
+  /*src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/roboto_slab_light.woff") format("woff"), url("//d2otzcfu7vqzws.cloudfront.net/fonts/roboto_slab_light.ttf") format("truetype");*/
   font-weight: 100; }
 
 @font-face {
   font-family: "Lato";
-  src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/lato_regular.eot");
-  src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/lato_regular.woff") format("woff"), url("//d2otzcfu7vqzws.cloudfront.net/fonts/lato_regular.ttf") format("truetype");
+  /*src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/lato_regular.eot");*/
+  /*src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/lato_regular.woff") format("woff"), url("//d2otzcfu7vqzws.cloudfront.net/fonts/lato_regular.ttf") format("truetype");*/
   font-weight: 400; }
 
 @font-face {
   font-family: "Lato";
-  src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/lato_bold.eot");
-  src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/lato_bold.woff") format("woff"), url("//d2otzcfu7vqzws.cloudfront.net/fonts/lato_bold.ttf") format("truetype");
+  /*src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/lato_bold.eot");*/
+  /*src: url("//d2otzcfu7vqzws.cloudfront.net/fonts/lato_bold.woff") format("woff"), url("//d2otzcfu7vqzws.cloudfront.net/fonts/lato_bold.ttf") format("truetype");*/
   font-weight: 700; }
 
 html {
@@ -2299,8 +2299,24 @@ html, body {
 div.box {
   width: 390px; }
   div.box input.input {
-    font-size: 22px; }
+    font-size: 22px;
+    width: 348px; }
 
-li.box span.sel {
-  font-weight: 900;
-  color: red; }
+li.box {
+  border-bottom: none; }
+  li.box:last-of-type {
+    border-bottom: 1px solid #dbe3e3; }
+  li.box.selected {
+    background-color: #efefef; }
+    li.box.selected:before {
+      background-color: #5D6769;
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      right: -1px;
+      top: 0px;
+      width: 3px;
+      z-index: 1; }
+  li.box span.em {
+    font-weight: 900;
+    color: red; }
