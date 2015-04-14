@@ -1,2 +1,2 @@
-# Bookmarkr
-Chrome bookmark extensions for fun!
+# Findr
+Quick search through bookmarks, history and other stuff.

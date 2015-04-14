@@ -12,7 +12,7 @@ var declare = require('gulp-declare');
 var concat = require('gulp-concat');
 
 gulp.task('clean-templates', function() {
-  return gulp.src(['./bookmarkr/js/templates.js'])
+  return gulp.src(['./findr/js/templates.js'])
     .pipe(clean());
 });
  
@@ -21,15 +21,15 @@ gulp.task('templates', ['clean-templates'], function() {
     .pipe(handlebars())
     .pipe(wrap('Handlebars.template(<%= contents %>)'))
     .pipe(declare({
-      namespace: 'Bookmarkr.templates',
+      namespace: 'findr.templates',
       noRedeclare: true, // Avoid duplicate declarations 
     }))
     .pipe(concat('templates.js'))
-    .pipe(gulp.dest('./bookmarkr/js/'));
+    .pipe(gulp.dest('./findr/js/'));
 });
 
 gulp.task('clean-styles', function() {
-  gulp.src(['./bookmarkr/css/*'], {read: false})
+  gulp.src(['./findr/css/*'], {read: false})
     .pipe(clean());
 })
 
@@ -37,23 +37,23 @@ gulp.task('styles', ['clean-styles'], function() {
   return gulp.src(['./vendor/css/*.css', './src/css/*.scss'])
     .pipe(sass())
     .pipe(concat('popup.css'))
-    .pipe(gulp.dest('./bookmarkr/css/'));
+    .pipe(gulp.dest('./findr/css/'));
 });
 
 
 gulp.task('clean-vendor-js', function() {
-  gulp.src(['./bookmarkr/js/vendor.js'], {read: false})
+  gulp.src(['./findr/js/vendor.js'], {read: false})
     .pipe(clean());
 });
 
 gulp.task('vendor-js', ['clean-vendor-js'], function() {
   return gulp.src(['./vendor/js/*.js', './src/js/hbs_helpers.js'])
     .pipe(concat('vendor.js'))
-    .pipe(gulp.dest('./bookmarkr/js/'));
+    .pipe(gulp.dest('./findr/js/'));
 })
 
 gulp.task('clean-background-js', function() {
-  return gulp.src(['./bookmarkr/js/background.js'])
+  return gulp.src(['./findr/js/background.js'])
     .pipe(clean());
 });
 
@@ -66,11 +66,11 @@ gulp.task('browserify-background', ['clean-background-js'], function() {
     .transform(babelify)
     .bundle()
     .pipe(source('background.js'))
-    .pipe(gulp.dest('./bookmarkr/js/'));
+    .pipe(gulp.dest('./findr/js/'));
 });
 
 gulp.task('clean-popup-js', function() {
-  return gulp.src(['./bookmarkr/js/popup.js'])
+  return gulp.src(['./findr/js/popup.js'])
     .pipe(clean());
 });
 
@@ -83,17 +83,17 @@ gulp.task('browserify-popup', ['clean-popup-js'], function() {
     .transform(babelify)
     .bundle()
     .pipe(source('popup.js'))
-    .pipe(gulp.dest('./bookmarkr/js/'));
+    .pipe(gulp.dest('./findr/js/'));
 });
 
 gulp.task('clean-views', function() {
-  return gulp.src(['./bookmarkr/*.html'])
+  return gulp.src(['./findr/*.html'])
     .pipe(clean());
 })
 
 gulp.task('views', ['clean-views'], function() {
   return gulp.src(['./src/views/*.html'])
-    .pipe(gulp.dest('./bookmarkr/'));
+    .pipe(gulp.dest('./findr/'));
 });
 
 gulp.task('watch', function() {

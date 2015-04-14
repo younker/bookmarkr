@@ -1,14 +1,14 @@
 {
   "manifest_version": 2,
-  "name": "Bookmarkr",
+  "name": "Findr",
   "version": "0.0.1",
-  "description": "Bookmark Helper",
+  "description": "Quick search through bookmarks, history and other stuff",
   "author": "Jason Younker",
   "background": {
     "scripts": [ "js/background.js" ]
   },
   "browser_action": {
-    "default_title": "Bookmarkr",
+    "default_title": "Findr",
     "default_popup": "popup.html"
   },
   "permissions": [ "bookmarks" ],

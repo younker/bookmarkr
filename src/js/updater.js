@@ -56,7 +56,7 @@ class Updater {
 
   render() {
     // debugger
-    let content = Bookmarkr.templates.results({bookmarks: this.bookmarks});
+    let content = Findr.templates.results({bookmarks: this.bookmarks});
     this.resultsEl.innerHTML = content;
   }
 }

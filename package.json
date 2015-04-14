@@ -1,10 +1,10 @@
 {
-  "name": "bookmarkr",
+  "name": "findr",
   "version": "0.0.1",
-  "description": "Bookmark search and stuff",
+  "description": "Quick search through bookmarks, history and other stuff",
   "repository": {
     "type": "git",
-    "url": "git://github.com/younker/bookmarkr.git"
+    "url": "git://github.com/younker/findr.git"
   },
   "devDependencies": {
     "babelify": "^6.0.2",
