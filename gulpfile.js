@@ -10,8 +10,13 @@ var handlebars = require('gulp-handlebars');
 var wrap = require('gulp-wrap');
 var declare = require('gulp-declare');
 var concat = require('gulp-concat');
+
+gulp.task('clean-templates', function() {
+  return gulp.src(['./bookmarkr/js/templates.js'])
+    .pipe(clean());
+});
  
-gulp.task('templates', function() {
+gulp.task('templates', ['clean-templates'], function() {
   gulp.src('src/templates/*.hbs')
     .pipe(handlebars())
     .pipe(wrap('Handlebars.template(<%= contents %>)'))
@@ -23,32 +28,36 @@ gulp.task('templates', function() {
     .pipe(gulp.dest('./bookmarkr/js/'));
 });
 
-
-
-gulp.task('clean', function() {
-  return gulp.src(['bookmarkr/*', '!bookmarkr/manifest.json'], {read: false})
+gulp.task('clean-styles', function() {
+  gulp.src(['./bookmarkr/css/*'], {read: false})
     .pipe(clean());
-});
+})
 
-gulp.task('sass', function() {
-  return gulp.src('./src/css/*.scss')
+gulp.task('styles', ['clean-styles'], function() {
+  return gulp.src(['./vendor/css/*.css', './src/css/*.scss'])
     .pipe(sass())
-    .pipe(gulp.dest('./bookmarkr/css/'))
-});
-
-gulp.task('vendor-css', function() {
-  return gulp.src(['./vendor/css/vendor.css'])
+    .pipe(concat('popup.css'))
     .pipe(gulp.dest('./bookmarkr/css/'));
 });
 
-gulp.task('vendor-js', function() {
+
+gulp.task('clean-vendor-js', function() {
+  gulp.src(['./bookmarkr/js/vendor.js'], {read: false})
+    .pipe(clean());
+});
+
+gulp.task('vendor-js', ['clean-vendor-js'], function() {
   return gulp.src(['./vendor/js/*.js', './src/js/hbs_helpers.js'])
     .pipe(concat('vendor.js'))
     .pipe(gulp.dest('./bookmarkr/js/'));
 })
 
+gulp.task('clean-background-js', function() {
+  return gulp.src(['./bookmarkr/js/background.js'])
+    .pipe(clean());
+});
 
-gulp.task('browserify-background', function() {
+gulp.task('browserify-background', ['clean-background-js'], function() {
   var args = {
     entries: ['./src/js/background.js'],
     debug: true
@@ -60,7 +69,12 @@ gulp.task('browserify-background', function() {
     .pipe(gulp.dest('./bookmarkr/js/'));
 });
 
-gulp.task('browserify-popup', function() {
+gulp.task('clean-popup-js', function() {
+  return gulp.src(['./bookmarkr/js/popup.js'])
+    .pipe(clean());
+});
+
+gulp.task('browserify-popup', ['clean-popup-js'], function() {
   var args = {
     entries: ['./src/js/popup.js'],
     debug: true
@@ -72,7 +86,12 @@ gulp.task('browserify-popup', function() {
     .pipe(gulp.dest('./bookmarkr/js/'));
 });
 
-gulp.task('views', function() {
+gulp.task('clean-views', function() {
+  return gulp.src(['./bookmarkr/*.html'])
+    .pipe(clean());
+})
+
+gulp.task('views', ['clean-views'], function() {
   return gulp.src(['./src/views/*.html'])
     .pipe(gulp.dest('./bookmarkr/'));
 });
@@ -85,7 +104,5 @@ gulp.task('watch', function() {
 });
 
 gulp.task('scripts', ['browserify-background', 'browserify-popup', 'vendor-js']);
-gulp.task('styles', ['vendor-css','sass']);
 
-// gulp.task('default', ['clean', 'templates', 'views', 'styles', 'scripts']);
-gulp.task('default', ['templates', 'views', 'styles', 'scripts']);
+gulp.task('default', ['styles', 'templates', 'scripts']);
