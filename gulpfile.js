@@ -21,7 +21,7 @@ gulp.task('templates', ['clean-templates'], function() {
     .pipe(handlebars())
     .pipe(wrap('Handlebars.template(<%= contents %>)'))
     .pipe(declare({
-      namespace: 'findr.templates',
+      namespace: 'Findr.templates',
       noRedeclare: true, // Avoid duplicate declarations 
     }))
     .pipe(concat('templates.js'))
