@@ -3,14 +3,16 @@
   <head>
     <meta charset="UTF-8">
     <title>Bookmarkr</title>
-    <link rel="stylesheet" href="http://d2otzcfu7vqzws.cloudfront.net/2.0.0-alpha.3/css/kaleidoscope.css">
-    <link rel="stylesheet" href="build/css/popup.css" />
+    <link rel="stylesheet" href="css/kaleidoscope.css" />
+    <link rel="stylesheet" href="css/popup.css" />
   </head>
   <body>
     <div class="box">
-      <input class="input large" type="text" placeholder="Begin typing...">
+      <input id="input" class="input large" type="text" placeholder="Begin typing...">
       <div id="results"></div>
     </div>
-    <script src="build/js/popup.js"></script>
+    <script src="js/handlebars-v3.0.1.js"></script>
+    <script src="js/templates.js"></script>
+    <script src="js/popup.js"></script>
   </body>
 </html>

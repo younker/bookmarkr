@@ -1,17 +1,35 @@
 'use strict';
 
-(function popup() {
-  console.log('popup loaded');
+import Meta from './meta';
+import Keyboard from './keyboard';
+import Updater from './updater';
 
-  // var Keyboard = function() {
-  // }
+(() => {
+  // Set up the keyboard to listen for key presses and interpret their keycodes
+  var keyboard = new Keyboard();
+  var input = document.getElementById('input');
+  keyboard.listen(input);
 
-  // "init": function(){
-    // $("body").keydown(function(event){
+  // Handle any list updates that are needed
+  var results = document.getElementById('results');
+  var updater = new Updater(input, results);
 
+  // Responsible for selection movement, action cancellations, etc
+  var meta = new Meta();
 
-  // var background = chrome.extension.getBackgroundPage();
-  // document.querySelector('button').addEventListener('click', function(e) {
-  //   background.handleButtonClick();
-  // });
+  chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
+    switch ( message.type ) {
+      case 'update':
+        var query = input.value
+        updater.search(query);
+        break;
+
+      case 'meta':
+        meta.perform(message.action);
+        break;
+
+      default:
+        console.log('unhandled message', message, sender);
+    }
+  });
 })();
