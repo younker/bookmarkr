@@ -15,10 +15,15 @@ import Updater from './updater';
   var updater = new Updater(input, results);
 
   // Responsible for selection movement, action cancellations, etc
-  var meta = new Meta();
+  var meta = new Meta(results);
 
   chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
+    console.log('onMessage', message);
     switch ( message.type ) {
+      case 'getChildren':
+        updater.getChildren(message.id);
+        break;
+
       case 'update':
         var query = input.value
         updater.search(query);

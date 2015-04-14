@@ -11,6 +11,16 @@ class Keycodes {
     };
 
     switch ( e.keyCode ) {
+      case 13: // enter
+        message.type = 'meta';
+        message.action = 'trigger';
+        break;
+
+      case 17: // ctrl
+      case 93: // cmd
+        message.type = 'noop';
+        break;
+
       case 37: // left arrow
         message.type = 'meta';
         message.action = 'moveBack';
@@ -65,12 +75,14 @@ class Keycodes {
           message.action = 'moveUp';
         }
         break;
+      default:
+        console.log(e.keyCode);
     };
 
-    console.log('keycodes', message);
-
     // Emit message so the proper action can be taken
-    chrome.runtime.sendMessage(message);
+    if ( message.type != 'noop' ) {
+      chrome.runtime.sendMessage(message) 
+    }
   }
 };
 

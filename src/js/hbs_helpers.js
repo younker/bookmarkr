@@ -19,7 +19,7 @@ Handlebars.registerHelper('highlight', function(type) {
 
     for ( var j in desc ) {
       var i = desc[j];
-      x = x.substr(0, i) + '<span class="sel">'+ x.substr(i, 1) +'</span>' + x.substr(i + 1);
+      x = x.substr(0, i) + '<span class="em">'+ x.substr(i, 1) +'</span>' + x.substr(i + 1);
     }
   }
 

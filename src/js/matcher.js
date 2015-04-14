@@ -1,7 +1,6 @@
 class Matcher {
   constructor (strings={}) {
     this.strings = strings;
-    // this.strings = strings.map((str) => { return str.toLowerCase() });
   }
 
   matches(query) {
@@ -10,9 +9,6 @@ class Matcher {
 
     // Match on any string
     let match = false;
-
-    // location that each match occurred
-    // this.details[query] = {};
 
     Object.keys(this.strings).some((type) => {
       let str = this.strings[type].toLowerCase();
@@ -40,7 +36,6 @@ class Matcher {
       return match;
     });
 
-    console.log(`Match Found? ${match}`, this);
     return match;
   }
 }

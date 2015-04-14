@@ -1,13 +1,13 @@
 {{#each bookmarks}}
   {{#if children}}
-    <li class="box-bordered-right">
-      {{title}} / {{child_count}}
+    <li class="box{{#if @first}} selected{{/if}}" data-id={{id}}>
+      {{title}} ({{child_count}}) / {{parentId}}
       <br />
       {{url}}
     </li>
   {{else}}
-    <li class="box">
-      {{{highlight 'title'}}}
+    <li class="box{{#if @first}} selected{{/if}}" data-id={{id}} data-url="{{url}}">
+      {{{highlight 'title'}}} ({{@first}})
       <br />
       {{{highlight 'url'}}}
     </li>

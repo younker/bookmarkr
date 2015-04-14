@@ -9,11 +9,33 @@ div.box {
 
   input.input {
     font-size: 22px;
+    width: 348px;
   }
 }
 
 li.box {
-  span.sel {
+  border-bottom: none;
+
+  &:last-of-type  {
+    border-bottom: 1px solid #dbe3e3;
+  }
+
+  &.selected {
+    background-color: #efefef;
+
+    &:before {
+      background-color: #5D6769;
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      right: -1px;
+      top: 0px;
+      width: 3px;
+      z-index: 1;
+    }    
+  }
+
+  span.em {
     font-weight: 900;
     color: red;
   }
