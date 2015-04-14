@@ -9,13 +9,15 @@ this["Findr"]["templates"]["results"] = Handlebars.template({"1":function(depth0
 
   return "    <li class=\"box"
     + ((stack1 = helpers['if'].call(depth0,(data && data.first),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "\" data-parent-id=\""
+    + "\" data-id="
     + alias3(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"id","hash":{},"data":data}) : helper)))
-    + "\">\n      "
+    + ">\n      "
     + alias3(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"title","hash":{},"data":data}) : helper)))
     + " ("
     + alias3(((helper = (helper = helpers.child_count || (depth0 != null ? depth0.child_count : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"child_count","hash":{},"data":data}) : helper)))
-    + ")\n      <br />\n      "
+    + ") / "
+    + alias3(((helper = (helper = helpers.parentId || (depth0 != null ? depth0.parentId : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"parentId","hash":{},"data":data}) : helper)))
+    + "\n      <br />\n      "
     + alias3(((helper = (helper = helpers.url || (depth0 != null ? depth0.url : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"url","hash":{},"data":data}) : helper)))
     + "\n    </li>\n";
 },"3":function(depth0,helpers,partials,data) {
@@ -25,7 +27,9 @@ this["Findr"]["templates"]["results"] = Handlebars.template({"1":function(depth0
 
   return "    <li class=\"box"
     + ((stack1 = helpers['if'].call(depth0,(data && data.first),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "\" data-url=\""
+    + "\" data-id="
+    + alias3(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"id","hash":{},"data":data}) : helper)))
+    + " data-url=\""
     + alias3(((helper = (helper = helpers.url || (depth0 != null ? depth0.url : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"url","hash":{},"data":data}) : helper)))
     + "\">\n      "
     + ((stack1 = (helpers.highlight || (depth0 && depth0.highlight) || alias1).call(depth0,"title",{"name":"highlight","hash":{},"data":data})) != null ? stack1 : "")
