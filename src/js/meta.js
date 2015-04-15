@@ -14,19 +14,23 @@ class Meta {
 
   // If we have a url, open it up. Otherwise, treat as a dir and open
   // it up (showing children of the node)
-  trigger() {
+  dispatch() {
     let sel = this.list.selected();
 
-    if ( sel.data('url') ) {
-      chrome.tabs.create({ url: sel.data('url') });
-
-    } else if ( sel.data('id') ) {
-      chrome.runtime.sendMessage({
-        type: 'getChildren',
-        id: sel.data('id')
-      });
+    if ( sel.hasData('url') ) {
+      this.openURL();
+    } else if ( sel.hasData('id') ) {
+      this.getChildren();
+    } else {
+      console.log('dispatch: no action taken');
     }
   }
+
+  openURL() {
+    let sel = this.list.selected();
+    let url = sel.data('url');
+    if ( url ) chrome.tabs.create({ url: url });
+  }  
 
   moveUp() {
     var sel = this.list.selected();
@@ -48,17 +52,21 @@ class Meta {
     }
   }
 
-  moveForward() {
-    console.log('move forward');
+  getChildren() {
+    let sel = this.list.selected();
+
+    if ( sel.data('id') ) {
+      chrome.runtime.sendMessage({
+        type: 'getChildren',
+        id: sel.data('id')
+      });
+    }
   }
 
-  moveBack() {
-    console.log('move back');
+  getParent() {
+    console.log('getParent');
   }
 
-  cancel() {
-    console.log('cancel');
-  }
 };
 
 module.exports = Meta;

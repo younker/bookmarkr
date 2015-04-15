@@ -13,7 +13,7 @@ class Keycodes {
     switch ( e.keyCode ) {
       case 13: // enter
         message.type = 'meta';
-        message.action = 'trigger';
+        message.action = 'dispatch';
         break;
 
       case 17: // ctrl
@@ -23,7 +23,7 @@ class Keycodes {
 
       case 37: // left arrow
         message.type = 'meta';
-        message.action = 'moveBack';
+        message.action = 'getParent';
         break;
 
       case 38: // up arrow
@@ -33,33 +33,12 @@ class Keycodes {
 
       case 39: // right arrow
         message.type = 'meta';
-        message.action = 'moveForward';
+        message.action = 'getChildren';
         break;
 
       case 40: // down arrow
         message.type = 'meta';
         message.action = 'moveDown';
-        break;
-
-      case 66: // b
-        if ( e.ctrlKey ) {
-          message.type = 'meta';
-          message.action = 'moveBack';
-          break;
-        }
-
-      case 70: // f
-        if ( e.ctrlKey ) {
-          message.type = 'meta';
-          message.action = 'moveForward';
-        }
-        break;
-
-      case 71: // g
-        if ( e.ctrlKey ) {
-          message.type = 'meta';
-          message.action = 'cancel';
-        }
         break;
 
       case 78: // n

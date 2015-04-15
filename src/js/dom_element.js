@@ -29,6 +29,10 @@ class DOMElement {
   data(key) {
     return this.el.getAttribute(`data-${key}`);
   }
+
+  hasData(key) {
+    return !!this.data(key);
+  }
 }
 
 module.exports = DOMElement;

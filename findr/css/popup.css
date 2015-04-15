@@ -2294,13 +2294,14 @@ ol li, ul li {
   font-weight: normal; }
 
 html, body {
-  width: 390px; }
+  width: 400px;
+  overflow-x: hidden; }
 
 div.box {
-  width: 390px; }
+  width: inherit; }
   div.box input.input {
-    font-size: 22px;
-    width: 348px; }
+    font-size: 15px;
+    width: 359px; }
 
 li.box {
   border-bottom: none; }
