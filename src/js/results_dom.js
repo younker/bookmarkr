@@ -7,20 +7,24 @@ class ResultsDOM {
     this.container = container;
   }
 
+  items() {
+    return this.container.querySelectorAll('.result.box');
+  }
+
   first() {
-    let f = this.container.getElementsByTagName('li')[0];
-    return this.domElOrNull(f);
+    let item = this.items[0];
+    return this.domElOrNull(item);
   }
 
   last() {
-    let list = this.container.getElementsByTagName('li');
-    let last = list[list.length - 1];
-    return this.domElOrNull(last);
+    let list = this.items();
+    let item = list[list.length - 1];
+    return this.domElOrNull(item);
   }
 
   selected() {
-    let sel = this.container.getElementsByClassName('selected')[0];
-    return this.domElOrNull(sel);
+    let item = this.container.getElementsByClassName('selected')[0];
+    return this.domElOrNull(item);
   }
 
   // Get the next element in the list relative to the provided domEl
@@ -28,7 +32,7 @@ class ResultsDOM {
     if ( !domEl ) return this.first();
 
     let index = this.indexOf(domEl);
-    let items = this.container.getElementsByTagName('li'); 
+    let items = this.items();
     let next = items[index + 1];
     if ( !next ) next = this.last();
     return this.domElOrNull(next);
@@ -38,7 +42,7 @@ class ResultsDOM {
     if ( !domEl ) return null;
 
     let index = this.indexOf(domEl);
-    let items = this.container.getElementsByTagName('li'); 
+    let items = this.items();
     let prev = items[index - 1];
     return this.domElOrNull(prev);
   }
@@ -68,14 +72,14 @@ class ResultsDOM {
 
   each(fn, args={}) {
     let bound = fn.bind(this);
-    let items = this.container.getElementsByTagName('li');
+    let items = this.items();
     for ( let i = 0; i < items.length; i++ ) {
       bound(new DOMElement(items[i]), args, i);
     }
   }
 
   indexOf(domEl) {
-    let items = this.container.getElementsByTagName('li');
+    let items = this.items();
     let index;
     for ( let i = 0; !index && i < items.length; i++ ) {
       if ( domEl.el == items[i] ) index = i;

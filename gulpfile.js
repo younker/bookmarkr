@@ -105,4 +105,4 @@ gulp.task('watch', function() {
 
 gulp.task('scripts', ['browserify-background', 'browserify-popup', 'vendor-js']);
 
-gulp.task('default', ['styles', 'templates', 'scripts']);
+gulp.task('default', ['styles', 'views', 'templates', 'scripts']);

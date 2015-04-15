@@ -26,12 +26,11 @@ class DOMElement {
     return this.el == domEl.el;
   }
 
-  data(key) {
-    return this.el.getAttribute(`data-${key}`);
-  }
+  url() {
+    let anchor = this.el.querySelector('a');
+    if ( !anchor ) return null;
 
-  hasData(key) {
-    return !!this.data(key);
+    return anchor.getAttribute('href');
   }
 }
 

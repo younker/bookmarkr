@@ -1,42 +1,47 @@
 class Matcher {
-  constructor (strings={}) {
-    this.strings = strings;
+  constructor (string) {
+    this.string = (string || '').toLowerCase();
+    this.previousMatches = {};
   }
 
   matches(query) {
-    query = query.toLowerCase();
-    let qlen = query.length;
+    if ( this.hasMatchData(query) ) return this.matchData(query);
 
-    // Match on any string
     let match = false;
-
-    Object.keys(this.strings).some((type) => {
-      let str = this.strings[type].toLowerCase();
-      let j = 0;
-      let len = str.length;
-
-      // a previous string matched, so exit
-      if ( match ) return true;
-
-      let matchLocations = [];
-      for ( let i = 0; i < len && !match; i++) {
-        if ( str.charAt(i) == query[j] ) {
-          matchLocations.push(i);
-          j++;
-        }
-        match = ( j == qlen );
+    let locations = [];
+    let q = query.toLowerCase();
+    let qlen = q.length;
+    let j = 0;
+    for ( let i = 0; i < this.string.length && !match; i++) {
+      if ( this.charAt(i) == q[j] ) {
+        locations.push(i);
+        j++;
       }
+      match = ( j == qlen );
+    }
 
-      if ( match ) {
-        this.details = {};
-        this.details[type] = matchLocations;
-      }
-
-      // when true will break out of some() loop
-      return match;
-    });
+    if ( match) this.setMatchData(query, match, locations);
 
     return match;
+  }
+
+  setMatchData(query, bool, locations) {
+    this.previousMatches[query] = {
+      match: bool,
+      locations: locations
+    };
+  }
+
+  hasMatchData(query) {
+    return !!this.matchData(query);
+  }
+
+  matchData(query) {
+    return this.previousMatches[query];
+  }
+
+  charAt(i) {
+    return this.string.charAt(i);
   }
 }
 

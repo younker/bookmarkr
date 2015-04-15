@@ -1,20 +1,17 @@
-$width: 400px;
-
 html, body {
-  width: $width;
-  overflow-x: hidden;
+  width: 800px;
 }
 
-div.box {
+input#input {
+  width: 100%;
+  font-size: 15px;
+}
+
+section#main {
   width: inherit;
-
-  input.input {
-    font-size: 15px;
-    width: 359px;
-  }
 }
 
-li.box {
+div.result.box {
   border-bottom: none;
 
   &:last-of-type  {
@@ -29,8 +26,8 @@ li.box {
       content: "";
       position: absolute;
       bottom: -1px;
-      right: -1px;
-      top: 0px;
+      left: -1px;
+      top: -1px;
       width: 3px;
       z-index: 1;
     }    

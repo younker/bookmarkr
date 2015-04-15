@@ -2,18 +2,18 @@
 
 class Keycodes {
   static onkeydown(e) {
-    // Assume the action is an update. Any other type of action must be
-    // handled for here.
+    // Assume any keystroke is meant to further filter results. Any other
+    // action must be explicitly handled for here.
     var message = {
       keycode: e.keyCode,
-      type: 'update',
+      type: 'filter',
       action: null
     };
 
     switch ( e.keyCode ) {
       case 13: // enter
         message.type = 'meta';
-        message.action = 'dispatch';
+        message.action = 'openURL';
         break;
 
       case 17: // ctrl
@@ -21,19 +21,9 @@ class Keycodes {
         message.type = 'noop';
         break;
 
-      case 37: // left arrow
-        message.type = 'meta';
-        message.action = 'getParent';
-        break;
-
       case 38: // up arrow
         message.type = 'meta';
         message.action = 'moveUp';
-        break;
-
-      case 39: // right arrow
-        message.type = 'meta';
-        message.action = 'getChildren';
         break;
 
       case 40: // down arrow
@@ -54,8 +44,9 @@ class Keycodes {
           message.action = 'moveUp';
         }
         break;
+
       default:
-        console.log(e.keyCode);
+        console.log(`keyCode: ${e.keyCode}`);
     };
 
     // Emit message so the proper action can be taken
