@@ -2294,30 +2294,30 @@ ol li, ul li {
   font-weight: normal; }
 
 html, body {
-  width: 400px;
-  overflow-x: hidden; }
+  width: 800px; }
 
-div.box {
+input#input {
+  width: 100%;
+  font-size: 15px; }
+
+section#main {
   width: inherit; }
-  div.box input.input {
-    font-size: 15px;
-    width: 359px; }
 
-li.box {
+div.result.box {
   border-bottom: none; }
-  li.box:last-of-type {
+  div.result.box:last-of-type {
     border-bottom: 1px solid #dbe3e3; }
-  li.box.selected {
+  div.result.box.selected {
     background-color: #efefef; }
-    li.box.selected:before {
+    div.result.box.selected:before {
       background-color: #5D6769;
       content: "";
       position: absolute;
       bottom: -1px;
-      right: -1px;
-      top: 0px;
+      left: -1px;
+      top: -1px;
       width: 3px;
       z-index: 1; }
-  li.box span.em {
+  div.result.box span.em {
     font-weight: 900;
     color: red; }
