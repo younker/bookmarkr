@@ -16,7 +16,12 @@ class NodePath {
   looseMatch(q) {
     // Match both so we have match locations (for the UI)
     var a = this.matchFor('path', q);
-    var b = this.matchFor('url', q);
+
+    // TODO: Until we get a better matcher algo or add a checkbox
+    // option to the UI to only search on titles, matching on
+    // urls just introduces too much noise since the matching
+    // is so imprecise
+    var b = false; // this.matchFor('url', q);
     return a || b;
   }
 
