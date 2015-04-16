@@ -1,11 +1,12 @@
 {
   "manifest_version": 2,
   "name": "Findr",
-  "version": "0.0.1",
-  "description": "Quick search through bookmarks, history and other stuff",
+  "version": "0.1.0",
+  "description": "Bookmark fuzzy finder",
   "author": "Jason Younker",
   "background": {
-    "scripts": [ "js/background.js" ]
+    "scripts": [ "js/background.js" ],
+    "persistent": false
   },
   "browser_action": {
     "default_title": "Findr",
