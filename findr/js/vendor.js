@@ -744,11 +744,12 @@ Handlebars.registerHelper('highlight', function(type, query) {
 
   // Sort in desc order so the introduction of span elements do not throw
   // off the indices
-  var desc = indices.sort(function(a, b) { return b - a; });
+  var desc = indices.sort(function(a, b) { return b[0] - a[0]; });
 
   for ( var j in desc ) {
-    var i = desc[j];
-    string = string.substr(0, i) + '<span class="em">'+ string.substr(i, 1) +'</span>' + string.substr(i + 1);
+    var start = desc[j][0];
+    var end = desc[j][1];
+    string = string.substr(0, start) + '<span class="em">'+ string.slice(start, end) +'</span>' + string.substr(end);
   }
 
   return string;
