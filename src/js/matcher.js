@@ -4,12 +4,6 @@ class Matcher {
     this.previousMatches = {};
   }
 
-  // 
-  // TODO:
-  // calculate match scores based on run lengths, match vacinity (to slashes?),
-  // etc and sort based on that
-  // 
-
   matches(query) {
     if ( this.hasMatchData(query) ) return this.matchData(query);
 
@@ -98,8 +92,18 @@ class Matcher {
   setMatchData(query, bool, locations) {
     this.previousMatches[query] = {
       match: bool,
-      locations: locations
+      locations: locations,
+      score: this.calculateScoreFor(locations)
     };
+  }
+
+  calculateScoreFor(locations) {
+    // Simply double the length of each match length.
+    return locations.map((match) => {
+      return Math.abs(match[0] - (match[1]-1)) * 2;
+    }).reduce((a, b) => {
+      return a + b;
+    }, 0);
   }
 
   hasMatchData(query) {

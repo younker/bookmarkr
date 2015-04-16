@@ -9,9 +9,14 @@ class TreeMapper {
   }
 
   filter(query) {
-    return this.collection.filter((nodepath) => {
+    let z = this.collection.filter((nodepath) => {
       return nodepath.looseMatch(query);
+    }).sort(function(a, b) {
+      let scorea = a.matchScore(query);
+      let scoreb = b.matchScore(query);
+      return scorea < scoreb;
     });
+    return z;
   }
 
   parse() {
