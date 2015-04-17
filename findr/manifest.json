@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Findr",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Bookmark fuzzy finder",
   "author": "Jason Younker",
   "homepage_url": "https://chrome.google.com/webstore/detail/findr/blnnnmdjhikmhhjdmjnmllphjkabplee?hl=en",
