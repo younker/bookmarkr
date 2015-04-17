@@ -2307,6 +2307,8 @@ div.result.box {
   border-bottom: none; }
   div.result.box:last-of-type {
     border-bottom: 1px solid #dbe3e3; }
+  div.result.box .tag-standard {
+    float: right; }
   div.result.box.selected {
     background-color: #efefef; }
     div.result.box.selected:before {

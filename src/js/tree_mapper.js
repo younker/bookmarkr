@@ -31,7 +31,7 @@ class TreeMapper {
           b(child, copy);
         });
       } else {
-        let nodePath = new NodePath(node.url, path);
+        let nodePath = new NodePath(node.url, path, 'bookmark');
         collection.push(nodePath);
       }
     };
@@ -43,6 +43,10 @@ class TreeMapper {
 
   nodeHasChildren(node) {
     return node['children'] && node.children.length > 0;
+  }
+
+  addNode(node) {
+    this.collection.push(node);
   }
 }
 

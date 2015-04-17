@@ -3,10 +3,11 @@
 import Matcher from './matcher';
 
 class NodePath {
-  constructor(url, pieces) {
+  constructor(url, pieces, source='bookmark') {
     this.url = url;
     this.pieces = pieces;
     this.path = pieces.join('/');
+    this.source = source;
     this.matchers = {
       path: new Matcher(this.path),
       url: new Matcher(this.url)

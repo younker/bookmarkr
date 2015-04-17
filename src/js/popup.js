@@ -1,19 +1,27 @@
 'use strict';
 
-import Meta from './meta';
 import Keyboard from './keyboard';
-import Updater from './updater';
+import Meta from './meta';
+import NodePath from './node_path';
 import TreeMapper from './tree_mapper';
+import Updater from './updater';
 
 (() => {
   var input = document.getElementById('input');
   var results = document.getElementById('results');
 
-  // Handle any list updates that are needed
   let updater;
-  var tree = chrome.bookmarks.getTree((tree) => {
-    let treemap = new TreeMapper(tree);
-    updater = new Updater(treemap, input, results);
+  new Promise((resolve, reject) => {
+    chrome.bookmarks.getTree((tree) => {
+      resolve(new TreeMapper(tree));
+    });
+  }).then((treemap) => {
+    chrome.history.search({text: '', maxResults: 10}, (hx) => {
+      hx.forEach((r) => {
+        treemap.addNode(new NodePath(r.url, [r.url], 'history'));
+      });
+      updater = new Updater(treemap, input, results);
+    });
   });
 
   // Set up the keyboard to listen for key presses and interpret their keycodes

@@ -2,6 +2,10 @@ Handlebars.registerHelper('child_count', function() {
   return this.children ? this.children.length : 0;
 });
 
+Handlebars.registerHelper('sourceTag', function() {
+  return '<span class="tag-standard">'+ this.source +'</span>';
+});
+
 Handlebars.registerHelper('highlight', function(type, query) {
   var string = this[type];
   if ( !string ) return '';
