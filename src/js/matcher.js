@@ -100,8 +100,14 @@ class Matcher {
   calculateScoreFor(locations) {
     // Simply double the length of each match length.
     return locations.map((match) => {
-      return Math.abs(match[0] - (match[1]-1)) * 2;
-    }).reduce((a, b) => {
+      let matchLength = Math.abs(match[0] - match[1]);
+      let multiplier = matchLength == 1 ? 1 : 2;
+
+      let startsWithSlash = this.string[match[0]] == '/'
+      if ( startsWithSlash && matchLength > 1 ) multiplier += 1;
+      return matchLength * multiplier;
+
+    }, this).reduce((a, b) => {
       return a + b;
     }, 0);
   }
