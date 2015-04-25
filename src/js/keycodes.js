@@ -44,10 +44,9 @@ class Keycodes {
           message.action = 'moveUp';
         }
         break;
-
-      default:
-        console.log(`keyCode: ${e.keyCode}`);
     };
+
+    console.log('keycodes.js: ', message);
 
     // Emit message so the proper action can be taken
     if ( message.type != 'noop' ) {

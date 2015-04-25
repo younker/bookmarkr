@@ -32,7 +32,7 @@ import Updater from './updater';
   var meta = new Meta(results);
 
   chrome.runtime.onMessage.addListener(function(message, sender, _resp) {
-    console.log('onMessage', message);
+    console.log('received message: ', message);
     switch ( message.type ) {
       case 'filter':
         updater.filter(input.value);
