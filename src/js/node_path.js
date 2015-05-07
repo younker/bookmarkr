@@ -2,6 +2,8 @@
 
 import Matcher from './matcher';
 
+let PATH_BONUS = 2;
+
 class NodePath {
   constructor(id, url, pieces, source='bookmark') {
     this.id = id;
@@ -27,6 +29,11 @@ class NodePath {
 
   matchScore(q) {
     var a = (this.matchDataFor('path', q) || {score:0}).score;
+
+    // Give the path an arbitrary "bonus" so a path match will carry
+    // greater weight than a url match.
+    if ( a > 0 ) a = a + PATH_BONUS;
+
     var b = (this.matchDataFor('url', q) || {score:0}).score;
     return Math.max(a,b);
   }

@@ -24,7 +24,7 @@ It's now loaded and you can use it however you like. For focused `popup.html` de
 - Score:
   - [x] For each match outside a run (the first entry is a locations entry), if it is preceeded by a '/', it should get a higher score
   - [x] Persist previous queries and the selected item. Make them first in line
-  - [ ] Rank title runs higher than url runs
+  - [x] Rank title runs higher than url runs
 - [ ] ES6ify / Polish code
 - [ ] Add screenshots, video, etc to chrome store
 - Integrate:
