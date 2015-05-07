@@ -1,16 +1,20 @@
 this["Findr"] = this["Findr"] || {};
 this["Findr"]["templates"] = this["Findr"]["templates"] || {};
 this["Findr"]["templates"]["results"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
-    var stack1, helper, alias1=helpers.helperMissing, alias2="function";
+    var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "  <div class=\""
     + ((stack1 = helpers['if'].call(depth0,(data && data.first),{"name":"if","hash":{},"fn":this.program(2, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "result box\">\n    "
+    + "result box\" data-source=\""
+    + alias3(((helper = (helper = helpers.source || (depth0 != null ? depth0.source : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"source","hash":{},"data":data}) : helper)))
+    + "\" data-id=\""
+    + alias3(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"id","hash":{},"data":data}) : helper)))
+    + "\">\n    "
     + ((stack1 = ((helper = (helper = helpers.sourceTag || (depth0 != null ? depth0.sourceTag : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"sourceTag","hash":{},"data":data}) : helper))) != null ? stack1 : "")
     + "\n    <div class=\"path\">"
     + ((stack1 = (helpers.highlight || (depth0 && depth0.highlight) || alias1).call(depth0,"path",(depths[1] != null ? depths[1].query : depths[1]),{"name":"highlight","hash":{},"data":data})) != null ? stack1 : "")
     + "</div>\n    <a href=\""
-    + this.escapeExpression(((helper = (helper = helpers.url || (depth0 != null ? depth0.url : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"url","hash":{},"data":data}) : helper)))
+    + alias3(((helper = (helper = helpers.url || (depth0 != null ? depth0.url : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"url","hash":{},"data":data}) : helper)))
     + "\" target=\"new\">"
     + ((stack1 = (helpers.highlight || (depth0 && depth0.highlight) || alias1).call(depth0,"url",(depths[1] != null ? depths[1].query : depths[1]),{"name":"highlight","hash":{},"data":data})) != null ? stack1 : "")
     + "</a>\n  </div>\n";

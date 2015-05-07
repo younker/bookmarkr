@@ -18,7 +18,7 @@
     "default_title": "Findr",
     "default_popup": "popup.html"
   },
-  "permissions": [ "bookmarks", "history" ],
+  "permissions": [ "bookmarks", "history", "storage" ],
   "commands": {
     "_execute_browser_action": {
       "suggested_key": {
