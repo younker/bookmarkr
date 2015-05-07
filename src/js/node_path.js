@@ -3,7 +3,8 @@
 import Matcher from './matcher';
 
 class NodePath {
-  constructor(url, pieces, source='bookmark') {
+  constructor(id, url, pieces, source='bookmark') {
+    this.id = id;
     this.url = url;
     this.pieces = pieces;
     this.path = pieces.join('/');
@@ -21,7 +22,7 @@ class NodePath {
   }
 
   matchFor(type, q) {
-    return this.matchers[type].matches(q);
+    return this.matchers[type].matches(q, this.id);
   }
 
   matchScore(q) {
@@ -31,7 +32,7 @@ class NodePath {
   }
 
   matchDataFor(type, q) {
-    return this.matchers[type].matchData(q);
+    return this.matchers[type].matchData(q, this.id);
   }
 }
 

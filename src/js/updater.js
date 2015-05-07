@@ -1,5 +1,3 @@
-import Matcher from './matcher';
-
 class Updater {
   constructor(treemap, inputEl, resultsEl) {
     this.treemap = treemap;

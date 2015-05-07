@@ -9,6 +9,10 @@ class DOMElement {
     this.el = el;
   }
 
+  id() {
+    return this.el.getAttribute('data-id');
+  }
+
   addClass(klass) {
     if ( this.hasClass(klass) ) return;
     this.el.classList.add(klass);

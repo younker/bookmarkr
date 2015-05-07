@@ -1,5 +1,5 @@
 {{#each bookmarks}}
-  <div class="{{#if @first}}selected {{/if}}result box">
+  <div class="{{#if @first}}selected {{/if}}result box" data-source="{{source}}" data-id="{{id}}">
     {{{sourceTag}}}
     <div class="path">{{{highlight 'path' ../query}}}</div>
     <a href="{{url}}" target="new">{{{highlight 'url' ../query}}}</a>

@@ -1,40 +1,32 @@
 'use strict';
 
-import ResultsDOM from './results_dom';
-
 class Meta {
-  constructor(list) {
-    this.list = new ResultsDOM(list);
+  constructor(results) {
+    this.results = results;
   }
 
   perform(action) {
-    console.log(`perform: ${action}`);
+    // console.log(`perform: ${action}`);
     this[action]();
   }
 
-  openURL() {
-    let item = this.list.selected();
-    let url = item.url();
-    if ( url ) chrome.tabs.create({ url: url });
-  }  
-
   moveUp() {
-    var item = this.list.selected();
-    var prev = this.list.previous(item);
+    var item = this.results.selected();
+    var prev = this.results.previous(item);
 
     if ( prev && item != prev ) {
-      this.list.unselect(item);
-      this.list.select(prev);
+      this.results.unselect(item);
+      this.results.select(prev);
     }
   }
 
   moveDown() {
-    var item = this.list.selected();
-    var next = this.list.next(item);
+    var item = this.results.selected();
+    var next = this.results.next(item);
 
     if ( next && item != next ) {
-      this.list.unselect(item);
-      this.list.select(next);
+      this.results.unselect(item);
+      this.results.select(next);
     }
   }
 };

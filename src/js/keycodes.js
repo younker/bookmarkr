@@ -12,8 +12,7 @@ class Keycodes {
 
     switch ( e.keyCode ) {
       case 13: // enter
-        message.type = 'meta';
-        message.action = 'openURL';
+        message.type = 'payload';
         break;
 
       case 17: // ctrl

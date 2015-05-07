@@ -1,5 +1,10 @@
-Handlebars.registerHelper('child_count', function() {
-  return this.children ? this.children.length : 0;
+Handlebars.registerHelper('foo', function() {
+  debugger
+  return;
+});
+
+Handlebars.registerHelper('score', function(query) {
+  return this.matchScore(query);
 });
 
 Handlebars.registerHelper('sourceTag', function() {

@@ -1,13 +1,13 @@
+import Selections from './selections';
+
 class Matcher {
   constructor (string) {
     this.string = (string || '').toLowerCase();
     this.previousMatches = {};
   }
 
-  matches(query) {
+  matches(query, queryId) {
     if ( this.hasMatchData(query) ) return this.matchData(query);
-
-    let foo = this.string;
 
     let match = false;
     let locations = [];
@@ -82,22 +82,39 @@ class Matcher {
       match = ( j == qlen );
     }
 
-    if ( match) {
-      this.setMatchData(query, match, locations);
+    if ( match ) {
+      this.setMatchData(query, queryId, match, locations);
     }
 
     return match;
   }
 
-  setMatchData(query, bool, locations) {
+  setMatchData(query, queryId, bool, locations) {
+    let score = this.calcLocationScore(locations);
+    let selectionCount = this.previousSelectionCount(query, queryId);
+    switch ( true ) {
+      case ( selectionCount > 1 && selectionCount < 4 ):
+        score = score * selectionCount;
+        break;
+      case ( selectionCount >= 4 && selectionCount < 6 ):
+        score = score * 4;
+        break;
+      case ( selectionCount >= 6 && selectionCount < 10 ):
+        score = score * 5;
+        break;
+      case ( selectionCount >= 10 ):
+        score = score * 6;
+        break;
+    }
+
     this.previousMatches[query] = {
       match: bool,
       locations: locations,
-      score: this.calculateScoreFor(locations)
+      score: score
     };
   }
 
-  calculateScoreFor(locations) {
+  calcLocationScore(locations) {
     // Simply double the length of each match length.
     return locations.map((match) => {
       let matchLength = Math.abs(match[0] - match[1]);
@@ -110,6 +127,10 @@ class Matcher {
     }, this).reduce((a, b) => {
       return a + b;
     }, 0);
+  }
+
+  previousSelectionCount(query, queryId) {
+    return Selections.getCount(query, queryId);
   }
 
   hasMatchData(query) {

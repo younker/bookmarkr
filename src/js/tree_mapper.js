@@ -28,7 +28,7 @@ class TreeMapper {
           b(child, copy);
         });
       } else {
-        let nodePath = new NodePath(node.url, path, 'bookmark');
+        let nodePath = new NodePath(node.id, node.url, path, 'bookmark');
         collection.push(nodePath);
       }
     };
