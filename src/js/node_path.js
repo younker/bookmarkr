@@ -17,6 +17,10 @@ class NodePath {
     };
   }
 
+  isExcluded(exclusions) {
+    return exclusions[this.source];
+  }
+
   looseMatch(q) {
     var a = this.matchFor('path', q);
     var b = this.matchFor('url', q);

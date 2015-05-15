@@ -8,9 +8,9 @@ class TreeMapper {
     this.collection = this.parse();
   }
 
-  filter(query) {
+  filter(query, exclusions) {
     return this.collection.filter((nodepath) => {
-      return nodepath.looseMatch(query);
+      return !nodepath.isExcluded(exclusions) && nodepath.looseMatch(query);
     }).sort(function(a, b) {
       return b.matchScore(query) - a.matchScore(query);
     });
