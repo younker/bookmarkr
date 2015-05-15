@@ -43,8 +43,6 @@ class Updater {
           defaults[flag_name] = false;
         }
 
-        debugger
-
       } else if ( capture[4] ) { // exclusion notation (foo -b)
         modq = capture[3];
         let flag = capture[4];
