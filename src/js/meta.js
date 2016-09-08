@@ -17,6 +17,9 @@ class Meta {
     if ( prev && item != prev ) {
       this.results.unselect(item);
       this.results.select(prev);
+      prev.el.scrollIntoViewIfNeeded(false);
+    } else {
+      document.body.scrollIntoViewIfNeeded(true);
     }
   }
 
@@ -27,6 +30,7 @@ class Meta {
     if ( next && item != next ) {
       this.results.unselect(item);
       this.results.select(next);
+      next.el.scrollIntoViewIfNeeded(false);
     }
   }
 };

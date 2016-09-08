@@ -24,7 +24,7 @@ It's now loaded and you can use it however you like. For focused `popup.html` de
 - [ ] Clean up and move exclusion logic (in updater.exclusions) to it's own class
 - [ ] Update README with in/exclusion instruction/examples
 - [ ] Do not refresh results when the last char is ' ' or ' -' (related to adding exclusion operators)
-- [ ] Vertically center selected option for long lists
+- [x] Vertically center selected option for long lists
 - [ ] Remove history/bookmark dups
 - [ ] ES6ify / Polish code
 - [ ] Add screenshots, video, etc to chrome store
