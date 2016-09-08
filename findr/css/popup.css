@@ -2052,7 +2052,6 @@ ol li, ul li {
     text-shadow: none !important; }
   @page {
     margin: 0.5cm; }
-
   h2, h3 {
     orphans: 3;
     page-break-after: avoid;
