@@ -1,6 +1,6 @@
 class Updater {
   constructor(treemap, inputEl, resultsEl) {
-     this.treemap = treemap;
+    this.treemap = treemap;
     this.inputEl = inputEl;
     this.resultsEl = resultsEl;
   }

@@ -5,7 +5,6 @@ var sass = require('gulp-sass');
 var source = require('vinyl-source-stream');
 var clean = require('gulp-clean');
 
-
 var handlebars = require('gulp-handlebars');
 var wrap = require('gulp-wrap');
 var declare = require('gulp-declare');
@@ -15,14 +14,14 @@ gulp.task('clean-templates', function() {
   return gulp.src(['./findr/js/templates.js'])
     .pipe(clean());
 });
- 
+
 gulp.task('templates', ['clean-templates'], function() {
   gulp.src('src/templates/*.hbs')
     .pipe(handlebars())
     .pipe(wrap('Handlebars.template(<%= contents %>)'))
     .pipe(declare({
       namespace: 'Findr.templates',
-      noRedeclare: true, // Avoid duplicate declarations 
+      noRedeclare: true, // Avoid duplicate declarations
     }))
     .pipe(concat('templates.js'))
     .pipe(gulp.dest('./findr/js/'));

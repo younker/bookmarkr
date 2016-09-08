@@ -49,7 +49,7 @@ class Keycodes {
 
     // Emit message so the proper action can be taken
     if ( message.type != 'noop' ) {
-      chrome.runtime.sendMessage(message) 
+      chrome.runtime.sendMessage(message)
     }
   }
 };
